@@ -1,17 +1,48 @@
 import { lazy } from "react";
 
-interface IRouteItem {
+export interface IRouteItem {
   path: string;
-  component: any;
+  redirect?: string;
+  component?: any;
+  exact?: boolean;
+  children?: IRouteItem[];
 }
 
 export const routes: IRouteItem[] = [
   {
-    path: "/index",
-    component: lazy(() => import("@/pages/Home")),
+    path: "/",
+    redirect: "/index",
+    exact: true,
   },
   {
-    path: "*",
+    path: "/index",
+    exact: false,
+    component: lazy(() => import("@/pages/Home")),
+    // children: [
+    //   {
+    //     path: "/index",
+    //     redirect: "/index/populargoods",
+    //   },
+    //   {
+    //     path: "/index/populargoods",
+    //     exact: true,
+    //     component: lazy(() => import("@/pages/PopularGoods")),
+    //   },
+    //   {
+    //     path: "/index/special",
+    //     exact: true,
+    //     component: lazy(() => import("@/pages/AccountCenter")),
+    //   },
+    // ],
+  },
+  {
+    path: "/404",
+    exact: true,
     component: lazy(() => import("@/pages/NotFound")),
   },
+  // {
+  //   path: "/*",
+  //   exact: true,
+  //   component: lazy(() => import("@/pages/NotFound")),
+  // },
 ];

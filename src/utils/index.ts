@@ -1,4 +1,4 @@
-import dayjs from "dayjs";
+import moment from "moment";
 
 type FORMAT =
   | "HH:mm"
@@ -7,4 +7,4 @@ type FORMAT =
   | "YYYY-MM-DD HH:mm:ss";
 
 export const dateFormat = (date: string | number | Date, format: FORMAT) =>
-  dayjs(date).format(format);
+  moment(date).format(format);

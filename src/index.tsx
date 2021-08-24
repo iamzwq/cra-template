@@ -1,15 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import dayjs from "dayjs";
-import "dayjs/locale/zh-cn";
+import { ConfigProvider } from "antd";
+import moment from "moment";
+import "moment/locale/zh-cn";
+import zhCN from "antd/lib/locale/zh_CN";
 import App from "./App";
 import "./index.scss";
 
-dayjs.locale("zh-cn");
+moment.locale("zh-cn");
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ConfigProvider locale={zhCN}>
     <App />
-  </React.StrictMode>,
+  </ConfigProvider>,
   document.getElementById("root")
 );

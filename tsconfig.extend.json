@@ -3,7 +3,7 @@
     "baseUrl":"src",
     "paths": {
       "@/*": ["./*"],
-      "@com/*": ["./components/"]
+      "@com/*": ["./components/*"]
     }
   }
 }
